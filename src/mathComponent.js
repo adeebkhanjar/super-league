@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import cheer from "./sound/cheer.wav";
 import kick from "./sound/kick.wav";
 import cricket from "./sound/cricket.wav";
@@ -40,7 +40,7 @@ const MathComp = ({
   };
   return (
     <div className="math">
-      <p>
+      <div>
         {question && !announcement ? (
           <div>
             {" "}
@@ -65,7 +65,7 @@ const MathComp = ({
             <p className="announcement">Goal</p>
           </span>
         )}
-      </p>
+      </div>
     </div>
   );
 };

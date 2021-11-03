@@ -1,5 +1,4 @@
 import "./App.css";
-import axios from "axios";
 import { useEffect, useState } from "react";
 import Goal from "./goalComponent";
 import MathComp from "./mathComponent";
@@ -35,7 +34,6 @@ function App() {
     }, 3000);
   };
   useEffect(() => {
-    console.log(indexState, "i", myGoals, "g");
     if (indexState >= 35 && myGoals >= 2) {
       setTimeout(() => {
         setGameOver(true);
@@ -51,7 +49,9 @@ function App() {
         setGameOver(true);
       }, 3000);
     }
+    //eslint-disable-next-line
   }, [myGoals, rivalGoals]);
+
   return (
     <div className="App">
       <Landing

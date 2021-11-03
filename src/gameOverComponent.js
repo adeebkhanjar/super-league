@@ -1,5 +1,4 @@
 const GameOver = ({ totalScore, resetgame, indexState, myGoals }) => {
-  console.log(indexState, "index", myGoals, "goals");
   return (
     <div className="game-over">
       {totalScore < 5 ? (
