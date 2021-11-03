@@ -1,27 +1,35 @@
-const GameOver = ({ totalScore, resetgame, indexState, myGoals }) => {
+const GameOver = ({ totalScore, resetgame, indexState, myGoals, lang }) => {
   return (
     <div className="game-over">
       {totalScore < 5 ? (
         <>
-          <p>You seem disappointed</p>
-          <p>You tried your best</p>
+          <p>{lang ? "You seem disappointed" : "אל תהיה מאוכזב"}</p>
+          <p>{lang ? "You tried your best" : "נסית את מיטבך"}</p>
         </>
       ) : totalScore < 30 ? (
-        <p>Good effort!</p>
+        <p>{lang ? "Good effort!" : "כל הכבוד על המאמץ"}</p>
       ) : (
-        <p>Great game!</p>
+        <p>{lang ? "Great game!" : "משחק מדהים"}</p>
       )}
-      <p>You Answered {totalScore} Questions correctly</p>
+      <p>
+        {lang
+          ? `You Answered ${totalScore} Questions correctly`
+          : `השבת על ${totalScore} שאלות נכונות`}
+      </p>
 
       {indexState >= 35 && myGoals >= 2 ? (
         <>
           <div className="trophy"></div>
-          <p>You are the champion</p>
+          <p>{lang ? "You are the champion" : "זכית באליפות"}</p>
         </>
       ) : (
         ""
       )}
-      <input type="button" value="Main menu" onClick={resetgame} />
+      <input
+        type="button"
+        value={lang ? "Main menu" : "חזור"}
+        onClick={resetgame}
+      />
     </div>
   );
 };

@@ -68,6 +68,18 @@ body {
     padding: 0 2vmin;
 }
 
+.lang {
+    position: absolute;
+    right: 5%;
+    width: 10vmin;
+    height: 10vmin;
+    padding: 0;
+    background: linear-gradient(to bottom, #76b17f, #076708);
+    border-radius: 1vmin;
+    box-shadow: black 0 0 1vmin 0.3vmin;
+    cursor: pointer;
+}
+
 .App {
     text-align: center;
     width: 100vw;

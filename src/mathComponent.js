@@ -14,6 +14,7 @@ const MathComp = ({
   setRivalScore,
   setTotalScore,
   totalScore,
+  lang,
 }) => {
   const [answer, setAnswer] = useState(null);
   const [announcement, setAnnouncement] = useState(null);
@@ -23,13 +24,13 @@ const MathComp = ({
     if (answer === question[indexState].a) {
       new Audio(cheer).play();
       setAnimation("ball2", "rival");
-      setAnnouncement("your");
+      setAnnouncement(lang ? "your" : "הבקעת");
       setYourScore(myGoals + 1);
       setTotalScore(totalScore + 1);
     } else {
       new Audio(cricket).play();
       setAnimation("ball2", "friend");
-      setAnnouncement(`${teamsArray[indexState]}'s`);
+      setAnnouncement(lang ? `${teamsArray[indexState]}'s` : "ספגת");
       setRivalScore(rivalGoals + 1);
     }
     setAnswer(null);
@@ -47,7 +48,9 @@ const MathComp = ({
             <p>{question[indexState].q}</p>
             <input
               type="text"
-              placeholder="Enter the correct number..."
+              placeholder={
+                lang ? "Enter the correct number..." : "תקליד את המספר הנכון"
+              }
               onChange={(e) => {
                 setAnswer(e.target.value);
               }}
@@ -57,12 +60,16 @@ const MathComp = ({
                 }
               }}
             />
-            <input type="button" value="submit" onClick={checkAnswer} />
+            <input
+              type="button"
+              value={lang ? "shoot" : "בעט"}
+              onClick={checkAnswer}
+            />
           </div>
         ) : (
           <span className="announcement">
             {announcement}
-            <p className="announcement">Goal</p>
+            <p className="announcement">{lang ? "Goal" : "שער"}</p>
           </span>
         )}
       </div>

@@ -4,6 +4,7 @@ import Goal from "./goalComponent";
 import MathComp from "./mathComponent";
 import Landing from "./landingComponent";
 import { questionsData } from "./dataSheet";
+import { questionsDataHebrew } from "./dataSheet";
 import { teamsArray } from "./dataSheet";
 import GameOver from "./gameOverComponent";
 function App() {
@@ -15,6 +16,8 @@ function App() {
   const [rivalGoals, setRivalGoals] = useState(0);
   const [gameOver, setGameOver] = useState(false);
   const [totalScore, setTotalScore] = useState(0);
+  const [lang, setLang] = useState(true);
+
   const resetGame = () => {
     setPic("");
     setBall("");
@@ -55,6 +58,10 @@ function App() {
   return (
     <div className="App">
       <Landing
+        langHandler={() => {
+          setLang(!lang);
+        }}
+        lang={lang}
         hide={hide}
         setHide={() => {
           setHide("hide");
@@ -69,6 +76,7 @@ function App() {
         rivalGoals={rivalGoals}
       />
       <MathComp
+        lang={lang}
         indexState={indexState}
         setIndexState={(a) => {
           setIndexState(a);
@@ -82,7 +90,7 @@ function App() {
         myGoals={myGoals}
         rivalGoals={rivalGoals}
         teamsArray={teamsArray}
-        question={questionsData}
+        question={lang ? questionsData : questionsDataHebrew}
         setAnimation={(a1, a2) => {
           setAnimation(a1, a2);
         }}
@@ -93,6 +101,7 @@ function App() {
       />
       {gameOver ? (
         <GameOver
+          lang={lang}
           indexState={indexState}
           myGoals={myGoals}
           totalScore={totalScore}
