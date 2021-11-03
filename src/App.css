@@ -2,6 +2,20 @@ body {
     margin: 0;
 }
 
+* {
+    color: white;
+    text-shadow: black 1px 1px;
+    font-size: 5vmin;
+    font-weight: 600;
+    box-sizing: border-box;
+}
+
+.logo {
+    background: url(./img/logo.png) no-repeat center center/cover;
+    width: 60vmin;
+    height: 60vmin;
+}
+
 .goal {
     background: no-repeat center center/cover url(./img/soccer2.jpg);
     width: 100%;
@@ -41,6 +55,12 @@ body {
 .math {
     width: 100%;
     height: 100%;
+    background: no-repeat center center/cover url(./img/grass.jpg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 2vmin;
 }
 
 .App {
@@ -61,8 +81,149 @@ body {
     color: white;
 }
 
-.App-link {
-    color: #61dafb;
+.landing,
+.game-over {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: no-repeat center center/cover url(./img/grass.jpg);
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    z-index: 1000;
+    padding: 5vmin;
+}
+
+input[type="button"] {
+    border: none;
+    background: linear-gradient(to bottom, #76b17f, #076708);
+    border-radius: 1vmin;
+    box-shadow: black 0 0 1vmin 0.3vmin;
+    padding: 2vmin 20vmin;
+    cursor: pointer;
+}
+
+input[type="button"]:hover {
+    transform: scale(1.05);
+}
+
+input[type="text"] {
+    margin-bottom: 4vmin;
+    border: none;
+    color: black;
+    border-radius: 1vmin;
+    text-shadow: none;
+    text-align: center;
+}
+
+input[type="text"]::placeholder {
+    font-weight: 500;
+}
+
+.hide {
+    display: none;
+}
+
+input[type="button"]:active {
+    transform: scale(0.95);
+}
+
+.announcement {
+    font-size: 15vmin;
+    animation: big 1s infinite;
+    line-height: 0;
+    text-shadow: black 0 8vmin;
+}
+
+.enemy-team {
+    position: absolute;
+    width: 20vmin;
+    height: 20vmin;
+    top: 5vmin;
+    left: 65vmin;
+}
+
+.my-team {
+    position: absolute;
+    width: 20vmin;
+    height: 20vmin;
+    top: 5vmin;
+    left: 10vmin;
+    background: no-repeat center center/cover url(./img/dream.png);
+}
+
+.score-paragraph {
+    position: absolute;
+    top: 0vmin;
+    font-size: 10vmin;
+    left: 40vmin;
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.trophy {
+    background: no-repeat center center/cover url(./img/winner.png);
+    width: 20vmin;
+    height: 20vmin;
+}
+
+.milan {
+    background: no-repeat center center/cover url(./img/Milan.png);
+}
+
+.real {
+    background: no-repeat center center/cover url(./img/Real.png);
+}
+
+.atletico {
+    background: no-repeat center center/cover url(./img/Atletico.png);
+}
+
+.arsenal {
+    background: no-repeat center center/cover url(./img/Arsenal.png);
+}
+
+.inter {
+    background: no-repeat center center/cover url(./img/Inter.png);
+}
+
+.juventus {
+    background: no-repeat center center/cover url(./img/juventus.png);
+}
+
+.barcelona {
+    background: no-repeat center center/cover url(./img/Barcelona.png);
+}
+
+.liverpool {
+    background: no-repeat center center/cover url(./img/Liverpool.png);
+}
+
+.united {
+    background: no-repeat center center/cover url(./img/united.png);
+}
+
+.city {
+    background: no-repeat center center/cover url(./img/city.png);
+}
+
+.tottenham {
+    background: no-repeat center center/cover url(./img/tottenham.png);
+}
+
+.chealsea {
+    background: no-repeat center center/cover url(./img/chealsea.png);
+}
+
+@keyframes big {
+    0% {
+        font-size: 15vmin;
+    }
+    50% {
+        font-size: 11vmin;
+    }
+    100% {
+        font-size: 15vmin;
+    }
 }
 
 @keyframes spin {
@@ -85,7 +246,7 @@ body {
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 566px) {
     .App {
         flex-direction: column;
     }
