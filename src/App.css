@@ -10,6 +10,12 @@ body {
     box-sizing: border-box;
 }
 
+.float {
+    position: absolute;
+    left: 2%;
+    bottom: 2%;
+}
+
 .logo {
     background: url(./img/logo.png) no-repeat center center/cover;
     width: 60vmin;
@@ -231,6 +237,15 @@ input[type="button"]:active {
     background: no-repeat center center/cover url(./img/chealsea.png);
 }
 
+@keyframes wave {
+    from {
+        box-shadow: red 0 0 1.5vmin 0.5vmin, orange 0 0 1.5vmin 1vmin, yellow 0 0 1.5vmin 1.5vmin;
+    }
+    to {
+        box-shadow: red 0 0 2vmin 0.5vmin, orange 0 0 2vmin 1vmin, yellow 0 0 2vmin 1.5vmin;
+    }
+}
+
 @keyframes big {
     0% {
         font-size: 15vmin;
@@ -269,6 +284,9 @@ input[type="button"]:active {
     }
     .ball {
         bottom: 52%;
+    }
+    .float {
+        bottom: 50%;
     }
     @keyframes shoot {
         from {

@@ -15,6 +15,7 @@ const MathComp = ({
   setTotalScore,
   totalScore,
   lang,
+  streak,
 }) => {
   const [answer, setAnswer] = useState(null);
   const [announcement, setAnnouncement] = useState(null);
@@ -41,6 +42,7 @@ const MathComp = ({
   };
   return (
     <div className="math">
+      <p className="float">streak: {streak}</p>
       <div>
         {question && !announcement ? (
           <div>

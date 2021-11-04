@@ -12,6 +12,8 @@ function App() {
   const [ball, setBall] = useState("");
   const [hide, setHide] = useState("");
   const [indexState, setIndexState] = useState(0);
+  const [streak, setStreak] = useState(0);
+  const [ball3, setBall3] = useState("");
   const [myGoals, setMyGoals] = useState(0);
   const [rivalGoals, setRivalGoals] = useState(0);
   const [gameOver, setGameOver] = useState(false);
@@ -33,6 +35,7 @@ function App() {
     setPic(a2);
     setTimeout(() => {
       setBall("");
+      setBall3("");
       setPic("");
     }, 3000);
   };
@@ -43,6 +46,7 @@ function App() {
       }, 3000);
     } else if (myGoals + rivalGoals >= 3) {
       setTimeout(() => {
+        setBall3("");
         setMyGoals(0);
         setRivalGoals(0);
       }, 3000);
@@ -51,6 +55,11 @@ function App() {
       setTimeout(() => {
         setGameOver(true);
       }, 3000);
+    }
+    if (streak >= 3) {
+      setBall3("ball3");
+    } else {
+      setBall3("");
     }
     //eslint-disable-next-line
   }, [myGoals, rivalGoals]);
@@ -68,6 +77,7 @@ function App() {
         }}
       />
       <Goal
+        ball3={ball3}
         pic={pic}
         ball={ball}
         teamsArray={teamsArray}
@@ -76,6 +86,7 @@ function App() {
         rivalGoals={rivalGoals}
       />
       <MathComp
+        streak={streak}
         lang={lang}
         indexState={indexState}
         setIndexState={(a) => {
@@ -83,9 +94,11 @@ function App() {
         }}
         setYourScore={(a) => {
           setMyGoals(a);
+          setStreak(streak + 1);
         }}
         setRivalScore={(a) => {
           setRivalGoals(a);
+          setStreak(0);
         }}
         myGoals={myGoals}
         rivalGoals={rivalGoals}
